@@ -15,7 +15,11 @@ api = Api(app)
 app.config['JWT_SECRET_KEY'] = 'gwklgn4gn42gmrmkrg'
 jwt = JWTManager(app)
 
+class HelloWorld(Resource):
+    def get(self):
+        return {'message': 'Hello, World!'}
 
+api.add_resource(HelloWorld, '/')
 
 class UserRegistrationResource(Resource):
     def post(self):
