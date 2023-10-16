@@ -17,14 +17,6 @@ jwt = JWTManager(app)
 
 
 
-class HomeResource(Resource):
-    def get(self):
-        return {'message': 'Welcome to the home page!'}
-
-api.add_resource(HomeResource, '/')
-
-
-
 
 class UserRegistrationResource(Resource):
     def post(self):
@@ -117,6 +109,8 @@ class UserResource(Resource):
             response = jsonify({'message': 'Missing or invalid Authorization header'})
             response.status_code = 401  # Unauthorized status code
             return response
+
+
 
 
 api.add_resource(UserResource, '/user/<int:user_id>')
