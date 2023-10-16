@@ -20,7 +20,7 @@ def create_app():
     # db.init_app(app)
 
     
-    # added routes
+    # add routes
     from app import routes
 
     return app
