@@ -138,6 +138,7 @@
 
 
 from app import app, db
+from flask_cors import CORS
 from flask import request, jsonify, make_response
 from flask_restful import Api, Resource, reqparse
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
@@ -148,7 +149,9 @@ api = Api(app)
 app.config['JWT_SECRET_KEY'] = 'gwklgn4gn42gmrmkrg'
 jwt = JWTManager(app)
 
-@app.route('/', methods=['GET', 'POST'])
+
+CORS(app)
+@app.route('/', methods=['GET' ])
 def home():
     data = {"message": "welcome"}
     return jsonify(data)
@@ -204,5 +207,4 @@ class UserLoginResource(Resource):
 api.add_resource(UserRegistrationResource, '/register')
 api.add_resource(UserLoginResource, '/login')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
