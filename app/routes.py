@@ -17,6 +17,11 @@ jwt = JWTManager(app)
 
 
 
+@app.route('/', methods=['GET'])
+def home():
+    data = {"message": "welcome"}
+    return jsonify(data)
+
 
 class UserRegistrationResource(Resource):
     def post(self):
